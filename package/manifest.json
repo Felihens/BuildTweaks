@@ -1,0 +1,9 @@
+{
+  "name": "BuildTweaks",
+  "version_number": "1.0.0",
+  "website_url": "",
+  "description": "Removing building pieces with the hammer costs no stamina, and their materials go straight into your inventory. Client-side.",
+  "dependencies": [
+    "denikson-BepInExPack_Valheim-5.4.2351"
+  ]
+}
