@@ -24,6 +24,8 @@ Rebuilding is less of a chore. Removing a piece with the hammer costs no stamina
 
 **r2modman / Thunderstore Mod Manager:** click *Install*. To install a downloaded zip, go to Settings → *Import local mod*.
 
+**Nexus Mods / Vortex:** also on [Nexus Mods](https://www.nexusmods.com/valheim/mods/4898).
+
 **Manual:**
 1. Extract the zip.
 2. Copy the `plugins/BuildTweaks` folder into `Valheim/BepInEx/plugins/`.
@@ -67,6 +69,8 @@ Reconstruir fica menos cansativo. Remover uma peça com o martelo não gasta sta
 ### Instalação
 
 **r2modman / Thunderstore Mod Manager:** clique em *Install*. Para instalar um zip baixado, use Configurações → *Import local mod*.
+
+**Nexus Mods / Vortex:** também está no [Nexus Mods](https://www.nexusmods.com/valheim/mods/4898).
 
 **À mão:**
 1. Extraia o zip.
