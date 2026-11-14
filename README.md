@@ -1,8 +1,8 @@
 # Build Tweaks
 
-A client-side BepInEx mod for Valheim: removing building pieces with the hammer costs no stamina, and their materials go straight into your inventory.
+A client-side BepInEx mod for Valheim: removing building pieces with the hammer costs no stamina, their materials go straight into your inventory, chests and furniture snap, and pieces turn to more angles.
 
-Mod para Valheim (BepInEx, client-side): remover peças com o martelo não gasta stamina, e os materiais vão direto para o inventário.
+Mod para Valheim (BepInEx, client-side): remover peças com o martelo não gasta stamina, os materiais vão direto para o inventário, baús e móveis encaixam e as peças giram em mais ângulos.
 
 For players, see [package/README.md](package/README.md). That file is also the Thunderstore page.
 Para jogadores, veja [package/README.md](package/README.md).

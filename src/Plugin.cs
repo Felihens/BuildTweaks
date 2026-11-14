@@ -13,12 +13,15 @@ namespace BuildTweaks
     {
         public const string GUID = "felih.BuildTweaks";
         public const string NAME = "Build Tweaks";
-        public const string VERSION = "1.0.0";
+        public const string VERSION = "1.1.0";
 
         internal static ManualLogSource Log;
         internal static ConfigEntry<bool> FreeRemove;
         internal static ConfigEntry<bool> RemovedToInventory;
-        internal static ConfigEntry<bool> DetailedLog;
+        internal static ConfigEntry<bool> DetailedLog, SnapEverything, MoreAngles, ShowAngle;
+        internal static ConfigEntry<string> NoSnapPieces;
+        internal static ConfigEntry<float> SnapDistance, RotationStep, FineRotationStep;
+        internal static ConfigEntry<KeyboardShortcut> FineRotationKey;
 
         private void Awake()
         {
@@ -27,6 +30,23 @@ namespace BuildTweaks
                 "Removing a building piece with the hammer costs no stamina.");
             RemovedToInventory = Config.Bind("1 - Removing", "MaterialsToInventory", true,
                 "The materials of a piece you remove go straight into your inventory. What doesn't fit drops on the ground as usual.");
+            SnapEverything = Config.Bind("2 - Snapping", "SnapEverything", true,
+                "Pieces without snap points (chests, furniture, the workbench and more) get some: the corners of their box and the " +
+                "middle of their bottom and top. So they snap beside, on top of and onto other pieces. Needs a game restart.");
+            NoSnapPieces = Config.Bind("2 - Snapping", "NoSnapPieces", "",
+                "Pieces (prefab names, comma separated) that should stay without snap points, e.g. piece_chest_wood,piece_bed02.");
+            SnapDistance = Config.Bind("2 - Snapping", "SnapDistance", 0.8f,
+                new ConfigDescription("How close (metres) a snap point of the piece you place must come to one nearby to snap. The game: 0.5. " +
+                "0 = the game's own.", new AcceptableValueRange<float>(0f, 3f)));
+            MoreAngles = Config.Bind("3 - Rotation", "MoreAngles", true,
+                "Turn the piece you place in RotationStep degrees for each turn of the mouse wheel, instead of the game's 22.5.");
+            RotationStep = Config.Bind("3 - Rotation", "RotationStep", 11.25f,
+                new ConfigDescription("Degrees per turn of the wheel (11.25 = 32 angles, every angle of the game included).", new AcceptableValueRange<float>(0.5f, 90f)));
+            FineRotationKey = Config.Bind("3 - Rotation", "FineRotationKey", new KeyboardShortcut(KeyCode.LeftAlt),
+                "Hold this key while turning the wheel for FineRotationStep instead. None = off.");
+            FineRotationStep = Config.Bind("3 - Rotation", "FineRotationStep", 1f,
+                new ConfigDescription("Degrees per turn of the wheel while FineRotationKey is held.", new AcceptableValueRange<float>(0.1f, 45f)));
+            ShowAngle = Config.Bind("3 - Rotation", "ShowAngle", true, "Show the angle under the crosshair for a moment after each turn.");
             DetailedLog = Config.Bind("9 - Debug", "DetailedLog", false, "Writes details to the BepInEx log.");
             new Harmony(GUID).PatchAll(typeof(Plugin).Assembly);
             Log.LogInfo(NAME + " " + VERSION + " loaded");
@@ -35,6 +55,11 @@ namespace BuildTweaks
         private void Update()
         {
             Removing.Update();
+        }
+
+        private void OnGUI()
+        {
+            Rotation.OnGUI();
         }
 
         internal static void Debug(string msg)
