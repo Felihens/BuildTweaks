@@ -1,6 +1,6 @@
 {
   "name": "BuildTweaks",
-  "version_number": "1.1.0",
+  "version_number": "1.2.0",
   "website_url": "https://github.com/Felihens/BuildTweaks",
   "description": "No stamina to remove pieces, materials to your inventory, snapping for chests and furniture, more rotation angles. Client-side.",
   "dependencies": [

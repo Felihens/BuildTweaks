@@ -6,7 +6,7 @@
 
 ## English
 
-Building is less of a chore. Removing a piece with the hammer costs no stamina and its materials go straight into your inventory. Chests, furniture and other pieces without snap points now snap, and you can turn pieces to many more angles.
+Building is less of a chore. Removing a piece with the hammer costs no stamina and its materials go straight into your inventory. Chests, furniture and other pieces without snap points now snap, you can turn pieces to many more angles, and the fires you built stay lit and keep you warm.
 
 ### Features
 
@@ -18,6 +18,8 @@ Building is less of a chore. Removing a piece with the hammer costs no stamina a
 - **Snapping for everything:** chests, furniture, the workbench and the other pieces that never snapped get snap points at the corners of their box and the middle of their bottom and top. A chest snaps beside or on top of another, on the corner of a floor or centred on a beam. The game's own snap points don't change. Pick which point of the piece snaps with **Q** / **E** as usual.
 - **Snaps from a bit farther:** 0.8 m instead of the game's 0.5 m.
 - **More rotation angles:** each turn of the mouse wheel turns the piece 11.25° (32 angles instead of 16, every angle of the game included). Hold **Left Alt** to turn 1° at a time. The angle shows under the crosshair.
+- **Fires stay lit:** built fires within 50 m of you (torches, sconces, braziers, campfires, hearths...) that burn out are filled up again for free. Fires you turned off on purpose stay off.
+- **Every fire warms you:** any lit built fire warms you like a campfire (same distance), and so does the torch in your hand. Only you feel it.
 
 ### Requirements
 
@@ -53,6 +55,10 @@ Press **F1** in game (requires Configuration Manager) or edit `BepInEx/config/fe
 | FineRotationKey | Left Alt | Hold it to turn in FineRotationStep degrees. |
 | FineRotationStep | 1 | Degrees per turn while the key is held. |
 | ShowAngle | on | Shows the angle under the crosshair after each turn. |
+| AutoLight | on | Built fires near you that burn out are filled up again for free. |
+| AutoLightRange | 50 | How far from you (metres) fires are kept lit. |
+| LightsWarmYou | on | Every lit built fire warms you like a campfire (restart after changing). |
+| TorchInHandWarmsYou | on | The torch in your hand warms you like a campfire. |
 | DetailedLog | off | Writes details to the BepInEx log (for bug reports). |
 
 ### Notes
@@ -63,7 +69,7 @@ Press **F1** in game (requires Configuration Manager) or edit `BepInEx/config/fe
 
 ## Português
 
-Construir fica menos cansativo. Remover uma peça com o martelo não gasta stamina e os materiais vão direto para o inventário. Baús, móveis e outras peças sem pontos de encaixe agora encaixam, e dá para girar as peças em muito mais ângulos.
+Construir fica menos cansativo. Remover uma peça com o martelo não gasta stamina e os materiais vão direto para o inventário. Baús, móveis e outras peças sem pontos de encaixe agora encaixam, dá para girar as peças em muito mais ângulos, e os fogos que você construiu ficam acesos e te aquecem.
 
 ### Recursos
 
@@ -75,6 +81,8 @@ Construir fica menos cansativo. Remover uma peça com o martelo não gasta stami
 - **Encaixe para tudo:** baús, móveis, a bancada e as outras peças que nunca encaixavam ganham pontos de encaixe nos cantos e no meio de baixo e de cima. Um baú encaixa ao lado ou em cima de outro, no canto de um piso ou centralizado numa viga. Os pontos do próprio jogo não mudam. Escolha qual ponto da peça encaixa com **Q** / **E**, como sempre.
 - **Encaixa de um pouco mais longe:** 0,8 m em vez dos 0,5 m do jogo.
 - **Mais ângulos de rotação:** cada clique da rodinha gira a peça 11,25° (32 ângulos em vez de 16, incluindo todos os do jogo). Segure **Alt esquerdo** para girar de 1° em 1°. O ângulo aparece embaixo da mira.
+- **Fogos continuam acesos:** fogos construídos a até 50 m de você (tochas, arandelas, braseiros, fogueiras, lareiras...) que se apagam são reabastecidos de graça. Fogos que você apagou de propósito continuam apagados.
+- **Todo fogo aquece:** qualquer fogo construído aceso te aquece como uma fogueira (mesma distância), e a tocha na mão também. Só você sente.
 
 ### Requisitos
 
@@ -110,6 +118,10 @@ Aperte **F1** no jogo (precisa do Configuration Manager) ou edite `BepInEx/confi
 | FineRotationKey | Alt esquerdo | Segure para girar em FineRotationStep graus. |
 | FineRotationStep | 1 | Graus por clique com a tecla segurada. |
 | ShowAngle | ligado | Mostra o ângulo embaixo da mira depois de cada giro. |
+| AutoLight | ligado | Fogos construídos perto de você que se apagam são reabastecidos de graça. |
+| AutoLightRange | 50 | Até que distância de você (metros) os fogos ficam acesos. |
+| LightsWarmYou | ligado | Todo fogo construído aceso te aquece como uma fogueira (reinicie depois de mudar). |
+| TorchInHandWarmsYou | ligado | A tocha na mão te aquece como uma fogueira. |
 | DetailedLog | desligado | Escreve detalhes no log do BepInEx (para relatar bugs). |
 
 ### Observações

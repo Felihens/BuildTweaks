@@ -13,7 +13,7 @@ namespace BuildTweaks
     {
         public const string GUID = "felih.BuildTweaks";
         public const string NAME = "Build Tweaks";
-        public const string VERSION = "1.1.0";
+        public const string VERSION = "1.2.0";
 
         internal static ManualLogSource Log;
         internal static ConfigEntry<bool> FreeRemove;
@@ -22,6 +22,8 @@ namespace BuildTweaks
         internal static ConfigEntry<string> NoSnapPieces;
         internal static ConfigEntry<float> SnapDistance, RotationStep, FineRotationStep;
         internal static ConfigEntry<KeyboardShortcut> FineRotationKey;
+        internal static ConfigEntry<bool> AutoLight, FiresWarm, TorchWarms;
+        internal static ConfigEntry<float> AutoLightRange;
 
         private void Awake()
         {
@@ -47,6 +49,13 @@ namespace BuildTweaks
             FineRotationStep = Config.Bind("3 - Rotation", "FineRotationStep", 1f,
                 new ConfigDescription("Degrees per turn of the wheel while FineRotationKey is held.", new AcceptableValueRange<float>(0.1f, 45f)));
             ShowAngle = Config.Bind("3 - Rotation", "ShowAngle", true, "Show the angle under the crosshair for a moment after each turn.");
+            AutoLight = Config.Bind("4 - Fires", "AutoLight", true,
+                "Built fires (torches, sconces, braziers, campfires...) near you that burn out are filled up again for free. Fires turned off on purpose stay off.");
+            AutoLightRange = Config.Bind("4 - Fires", "AutoLightRange", 50f,
+                new ConfigDescription("How far from you (metres) fires are kept lit.", new AcceptableValueRange<float>(5f, 100f)));
+            FiresWarm = Config.Bind("4 - Fires", "LightsWarmYou", true,
+                "Every lit built fire warms you like a campfire (same distance). Only in your game. Needs a restart to change.");
+            TorchWarms = Config.Bind("4 - Fires", "TorchInHandWarmsYou", true, "The torch in your hand warms you like a campfire.");
             DetailedLog = Config.Bind("9 - Debug", "DetailedLog", false, "Writes details to the BepInEx log.");
             new Harmony(GUID).PatchAll(typeof(Plugin).Assembly);
             Log.LogInfo(NAME + " " + VERSION + " loaded");
@@ -55,6 +64,7 @@ namespace BuildTweaks
         private void Update()
         {
             Removing.Update();
+            Fires.Update();
         }
 
         private void OnGUI()
