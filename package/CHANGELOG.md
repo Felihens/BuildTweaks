@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.0
+- Station upgrades (chopping block, tanning rack, forge bellows...) show "(owned)" next to their name at the bottom of the screen while you place them, when the nearest station of their kind already has that upgrade. Config `OwnedTag`. / As melhorias de bancada (cepo, varal de couro, fole da forja...) mostram "(owned)" ao lado do nome, embaixo da tela, enquanto você as coloca, quando a bancada mais próxima daquele tipo já tem essa melhoria. Config `OwnedTag`.
+
 ## 1.2.0
 - Fires: built fires near you (torches, sconces, braziers, campfires...) that burn out are filled up again for free; fires turned off on purpose stay off. Every lit built fire warms you like a campfire, and so does the torch in your hand (only in your game). / Fogueiras: fogos construídos perto de você (tochas, arandelas, braseiros, fogueiras...) que se apagam são reabastecidos de graça; fogos apagados de propósito continuam apagados. Todo fogo construído aceso te aquece como uma fogueira, e a tocha na mão também (só no seu jogo).
 

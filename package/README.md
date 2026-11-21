@@ -20,6 +20,7 @@ Building is less of a chore. Removing a piece with the hammer costs no stamina a
 - **More rotation angles:** each turn of the mouse wheel turns the piece 11.25° (32 angles instead of 16, every angle of the game included). Hold **Left Alt** to turn 1° at a time. The angle shows under the crosshair.
 - **Fires stay lit:** built fires within 50 m of you (torches, sconces, braziers, campfires, hearths...) that burn out are filled up again for free. Fires you turned off on purpose stay off.
 - **Every fire warms you:** any lit built fire warms you like a campfire (same distance), and so does the torch in your hand. Only you feel it.
+- **"(owned)" on station upgrades:** while you place a station upgrade (chopping block, tanning rack, forge bellows...), its name at the bottom of the screen shows **(owned)** when the nearest station of its kind already has it, so you don't build the same one twice.
 
 ### Requirements
 
@@ -59,6 +60,7 @@ Press **F1** in game (requires Configuration Manager) or edit `BepInEx/config/fe
 | AutoLightRange | 50 | How far from you (metres) fires are kept lit. |
 | LightsWarmYou | on | Every lit built fire warms you like a campfire (restart after changing). |
 | TorchInHandWarmsYou | on | The torch in your hand warms you like a campfire. |
+| OwnedTag | on | Station upgrades show "(owned)" when the nearest station of their kind already has them. |
 | DetailedLog | off | Writes details to the BepInEx log (for bug reports). |
 
 ### Notes
@@ -83,6 +85,7 @@ Construir fica menos cansativo. Remover uma peça com o martelo não gasta stami
 - **Mais ângulos de rotação:** cada clique da rodinha gira a peça 11,25° (32 ângulos em vez de 16, incluindo todos os do jogo). Segure **Alt esquerdo** para girar de 1° em 1°. O ângulo aparece embaixo da mira.
 - **Fogos continuam acesos:** fogos construídos a até 50 m de você (tochas, arandelas, braseiros, fogueiras, lareiras...) que se apagam são reabastecidos de graça. Fogos que você apagou de propósito continuam apagados.
 - **Todo fogo aquece:** qualquer fogo construído aceso te aquece como uma fogueira (mesma distância), e a tocha na mão também. Só você sente.
+- **"(owned)" nas melhorias de bancada:** ao colocar uma melhoria de bancada (cepo, varal de couro, fole da forja...), o nome dela embaixo da tela mostra **(owned)** quando a bancada mais próxima daquele tipo já tem essa melhoria, pra você não construir a mesma duas vezes.
 
 ### Requisitos
 
@@ -122,6 +125,7 @@ Aperte **F1** no jogo (precisa do Configuration Manager) ou edite `BepInEx/confi
 | AutoLightRange | 50 | Até que distância de você (metros) os fogos ficam acesos. |
 | LightsWarmYou | ligado | Todo fogo construído aceso te aquece como uma fogueira (reinicie depois de mudar). |
 | TorchInHandWarmsYou | ligado | A tocha na mão te aquece como uma fogueira. |
+| OwnedTag | ligado | Melhorias de bancada mostram "(owned)" quando a bancada mais próxima do tipo já tem. |
 | DetailedLog | desligado | Escreve detalhes no log do BepInEx (para relatar bugs). |
 
 ### Observações

@@ -13,7 +13,7 @@ namespace BuildTweaks
     {
         public const string GUID = "felih.BuildTweaks";
         public const string NAME = "Build Tweaks";
-        public const string VERSION = "1.2.0";
+        public const string VERSION = "1.3.0";
 
         internal static ManualLogSource Log;
         internal static ConfigEntry<bool> FreeRemove;
@@ -24,6 +24,7 @@ namespace BuildTweaks
         internal static ConfigEntry<KeyboardShortcut> FineRotationKey;
         internal static ConfigEntry<bool> AutoLight, FiresWarm, TorchWarms;
         internal static ConfigEntry<float> AutoLightRange;
+        internal static ConfigEntry<bool> OwnedTag;
 
         private void Awake()
         {
@@ -56,6 +57,8 @@ namespace BuildTweaks
             FiresWarm = Config.Bind("4 - Fires", "LightsWarmYou", true,
                 "Every lit built fire warms you like a campfire (same distance). Only in your game. Needs a restart to change.");
             TorchWarms = Config.Bind("4 - Fires", "TorchInHandWarmsYou", true, "The torch in your hand warms you like a campfire.");
+            OwnedTag = Config.Bind("5 - Build menu", "OwnedTag", true,
+                "While placing a station upgrade (chopping block, tanning rack, forge bellows...), its name at the bottom of the screen shows \"(owned)\" when the nearest station of its kind already has it.");
             DetailedLog = Config.Bind("9 - Debug", "DetailedLog", false, "Writes details to the BepInEx log.");
             new Harmony(GUID).PatchAll(typeof(Plugin).Assembly);
             Log.LogInfo(NAME + " " + VERSION + " loaded");
