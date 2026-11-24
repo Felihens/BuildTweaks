@@ -1,8 +1,8 @@
 {
   "name": "BuildTweaks",
-  "version_number": "1.3.0",
+  "version_number": "1.4.0",
   "website_url": "https://github.com/Felihens/BuildTweaks",
-  "description": "No stamina to remove pieces, materials to your inventory, snapping for chests and furniture, more rotation angles. Client-side.",
+  "description": "Support colour before you build, undo, area repair, fine placement, free removal with materials to your inventory, snapping for chests and furniture, more angles. Client-side.",
   "dependencies": [
     "denikson-BepInExPack_Valheim-5.4.2351"
   ]

@@ -19,16 +19,62 @@ namespace BuildTweaks
         private static bool _lastOwned;
         private static float _nextCheck;
 
+        // what we added after the piece's name last time ("(owned)" and the build count, 2026-11-22)
+        private static string _suffix = "";
+        private static Piece _countPiece;
+        private static float _nextCount;
+        private static string _countTag = "";
+
         [HarmonyPatch(typeof(Hud), "UpdateBuild"), HarmonyPostfix]
         private static void AfterUpdateBuild(Hud __instance, Player player)
         {
             if (__instance.m_buildSelection == null) return;
             string text = __instance.m_buildSelection.text;
             if (text == null) return;
-            bool tagged = text.EndsWith(Tag);
-            bool owned = Plugin.OwnedTag.Value && player != null && player.InPlaceMode() && IsOwned(player, player.GetSelectedPiece());
-            if (owned && !tagged) __instance.m_buildSelection.text = text + Tag;
-            else if (!owned && tagged) __instance.m_buildSelection.text = text.Substring(0, text.Length - Tag.Length);
+            string name = _suffix.Length > 0 && text.EndsWith(_suffix) ? text.Substring(0, text.Length - _suffix.Length) : text;
+            bool placing = player != null && player.InPlaceMode();
+            Piece piece = placing ? player.GetSelectedPiece() : null;
+            string suffix = "";
+            if (Plugin.OwnedTag.Value && placing && IsOwned(player, piece)) suffix += Tag;
+            if (Plugin.BuildCount.Value && piece != null && !CraftyBoxes()) suffix += CountTag(player, piece);
+            if (suffix == _suffix && name.Length + suffix.Length == text.Length) return;
+            _suffix = suffix;
+            __instance.m_buildSelection.text = name + suffix;
+        }
+
+        // AzuCraftyBoxes already puts its own count, inventory + chests, after the name (user, 2026-11-24): ours would repeat it
+        private static int _crafty = -1;
+        private static bool CraftyBoxes()
+        {
+            if (_crafty < 0) _crafty = BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey("Azumatt.AzuCraftyBoxes") ? 1 : 0;
+            return _crafty == 1;
+        }
+
+        // " x12": how many of this piece the materials in your inventory make (nothing when building is free)
+        private static string CountTag(Player player, Piece piece)
+        {
+            if (piece == _countPiece && Time.time < _nextCount) return _countTag;
+            _countPiece = piece;
+            _nextCount = Time.time + 0.25f;
+            _countTag = "";
+            if (piece.m_resources == null || piece.m_resources.Length == 0 || player.NoCostCheat()) return _countTag;
+            if (ZoneSystem.instance != null && ZoneSystem.instance.GetGlobalKey(piece.FreeBuildKey())) return _countTag;
+            Inventory inv = player.GetInventory();
+            if (inv == null) return _countTag;
+            int can = int.MaxValue, withChests = int.MaxValue;
+            foreach (Piece.Requirement r in piece.m_resources)
+            {
+                if (r.m_resItem == null || r.m_amount <= 0) continue;
+                string item = r.m_resItem.m_itemData.m_shared.m_name;
+                int have = inv.CountItems(item, -1, true);
+                can = Mathf.Min(can, have / r.m_amount);
+                withChests = Mathf.Min(withChests, (have + Nearby.Count(item)) / r.m_amount);
+            }
+            if (can == int.MaxValue) return _countTag;
+            _countTag = can > 0 ? " <color=#E8D9A8>x" + can + "</color>" : " <color=#E07A6A>x0</color>";
+            // (42 with chests): only when the chests around you make more of it (user's pick, 2026-11-22)
+            if (withChests > can) _countTag += " <color=#9A8F7A><size=85%>(" + withChests + " with chests)</size></color>";
+            return _countTag;
         }
 
         private static bool IsOwned(Player player, Piece piece)

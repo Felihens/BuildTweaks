@@ -6,7 +6,7 @@
 
 ## English
 
-Building is less of a chore. Removing a piece with the hammer costs no stamina and its materials go straight into your inventory. Chests, furniture and other pieces without snap points now snap, you can turn pieces to many more angles, and the fires you built stay lit and keep you warm.
+Building is less of a chore. See how well a piece will be held up before you build it, undo your last build action, repair a whole area at once and move pieces a few centimetres. Removing a piece with the hammer costs no stamina and its materials go straight into your inventory. Chests, furniture and other pieces without snap points now snap, you can turn pieces to many more angles, and the fires you built stay lit and keep you warm.
 
 ### Features
 
@@ -21,6 +21,12 @@ Building is less of a chore. Removing a piece with the hammer costs no stamina a
 - **Fires stay lit:** built fires within 50 m of you (torches, sconces, braziers, campfires, hearths...) that burn out are filled up again for free. Fires you turned off on purpose stay off.
 - **Every fire warms you:** any lit built fire warms you like a campfire (same distance), and so does the torch in your hand. Only you feel it.
 - **"(owned)" on station upgrades:** while you place a station upgrade (chopping block, tanning rack, forge bellows...), its name at the bottom of the screen shows **(owned)** when the nearest station of its kind already has it, so you don't build the same one twice.
+- **See the support before you build:** while you place a piece, it already shows the colour the hammer's support view would give it: light blue on the ground, then green, yellow and red as the support gets weaker, and **dark wine** when it has too little and would fall right after you build it.
+- **Undo:** with the hammer out, **Backspace** undoes your last build action. A piece you placed comes down and its materials come back; a piece you removed goes back to the same spot and angle (using its materials). Press again to go further back, up to 20 actions. A piece someone else already took down is skipped, nothing is refunded for it.
+- **Area repair:** hold **Shift** while you repair a piece to also repair every damaged piece within 7 m of it. Each one costs the usual stamina and hammer durability.
+- **Fine placement:** while placing, the **arrow keys** move the piece 5 cm at a time along its own sides, **Page Up** / **Page Down** move it up and down.
+- **Copy with the exact angle:** **Shift + middle mouse** (the game's "copy this piece") now also copies the exact angle, fine rotation included.
+- **Build count:** the piece name at the bottom of the screen shows how many you can build with what you carry (**x12**), and **(42 with chests)** when the chests around you have enough for more. Hidden when AzuCraftyBoxes is installed, since it shows its own count.
 
 ### Requirements
 
@@ -61,6 +67,16 @@ Press **F1** in game (requires Configuration Manager) or edit `BepInEx/config/fe
 | LightsWarmYou | on | Every lit built fire warms you like a campfire (restart after changing). |
 | TorchInHandWarmsYou | on | The torch in your hand warms you like a campfire. |
 | OwnedTag | on | Station upgrades show "(owned)" when the nearest station of their kind already has them. |
+| BuildCount | on | The piece name shows how many you can build (x12). |
+| BuildCountChestRange | 20 | Metres around you where chests count for "(42 with chests)". 0 = inventory only. |
+| SupportPreview | on | The piece you place shows its support colour before you build it. |
+| AreaRepairKey | Left Shift | Hold it while repairing to repair every damaged piece around. |
+| AreaRepairRadius | 7 | Metres around the repaired piece. |
+| NudgeStep | 0.05 | Metres per press of a nudge key. |
+| NudgeForward / Back / Left / Right | arrow keys | Move the piece you place along its sides. |
+| NudgeUp / NudgeDown | Page Up / Page Down | Move the piece you place up and down. |
+| UndoKey | Backspace | Undoes your last build action (any key works, e.g. Z + LeftControl). |
+| UndoHistory | 20 | How many build actions you can undo. |
 | DetailedLog | off | Writes details to the BepInEx log (for bug reports). |
 
 ### Notes
@@ -71,7 +87,7 @@ Press **F1** in game (requires Configuration Manager) or edit `BepInEx/config/fe
 
 ## Português
 
-Construir fica menos cansativo. Remover uma peça com o martelo não gasta stamina e os materiais vão direto para o inventário. Baús, móveis e outras peças sem pontos de encaixe agora encaixam, dá para girar as peças em muito mais ângulos, e os fogos que você construiu ficam acesos e te aquecem.
+Construir fica menos cansativo. Veja a sustentação da peça antes de construir, desfaça sua última ação, conserte uma área inteira de uma vez e mova peças de poucos centímetros. Remover uma peça com o martelo não gasta stamina e os materiais vão direto para o inventário. Baús, móveis e outras peças sem pontos de encaixe agora encaixam, dá para girar as peças em muito mais ângulos, e os fogos que você construiu ficam acesos e te aquecem.
 
 ### Recursos
 
@@ -86,6 +102,12 @@ Construir fica menos cansativo. Remover uma peça com o martelo não gasta stami
 - **Fogos continuam acesos:** fogos construídos a até 50 m de você (tochas, arandelas, braseiros, fogueiras, lareiras...) que se apagam são reabastecidos de graça. Fogos que você apagou de propósito continuam apagados.
 - **Todo fogo aquece:** qualquer fogo construído aceso te aquece como uma fogueira (mesma distância), e a tocha na mão também. Só você sente.
 - **"(owned)" nas melhorias de bancada:** ao colocar uma melhoria de bancada (cepo, varal de couro, fole da forja...), o nome dela embaixo da tela mostra **(owned)** quando a bancada mais próxima daquele tipo já tem essa melhoria, pra você não construir a mesma duas vezes.
+- **Veja a sustentação antes de construir:** enquanto você posiciona uma peça, ela já mostra a cor que a visão de sustentação do martelo daria: azul claro no chão, depois verde, amarelo e vermelho conforme o apoio enfraquece, e **vinho escuro** quando o apoio é pouco demais e ela cairia logo depois de construída.
+- **Desfazer:** com o martelo na mão, **Backspace** desfaz sua última ação de construção. Uma peça que você colocou é desmontada e o material volta; uma peça que você removeu volta no mesmo lugar e ângulo (gastando o material). Aperte de novo para voltar mais, até 20 ações. Peça que outra pessoa já derrubou é pulada, sem devolver nada.
+- **Conserto em área:** segure **Shift** ao consertar uma peça para consertar também todas as peças danificadas a até 7 m dela. Cada uma custa a stamina e a durabilidade do martelo de sempre.
+- **Ajuste fino:** ao posicionar, as **setas** movem a peça de 5 em 5 cm pelos lados dela, **Page Up** / **Page Down** sobem e descem.
+- **Copiar com o ângulo exato:** **Shift + botão do meio** (o "copiar peça" do jogo) agora copia também o ângulo exato, inclusive do giro fino.
+- **Contador de construção:** o nome da peça embaixo da tela mostra quantas você consegue construir com o que carrega (**x12**), e **(42 with chests)** quando os baús por perto dão para mais. Fica escondido com o AzuCraftyBoxes instalado, que já mostra a própria contagem.
 
 ### Requisitos
 
@@ -126,6 +148,16 @@ Aperte **F1** no jogo (precisa do Configuration Manager) ou edite `BepInEx/confi
 | LightsWarmYou | ligado | Todo fogo construído aceso te aquece como uma fogueira (reinicie depois de mudar). |
 | TorchInHandWarmsYou | ligado | A tocha na mão te aquece como uma fogueira. |
 | OwnedTag | ligado | Melhorias de bancada mostram "(owned)" quando a bancada mais próxima do tipo já tem. |
+| BuildCount | ligado | O nome da peça mostra quantas dá para construir (x12). |
+| BuildCountChestRange | 20 | Metros em volta de você em que os baús contam para "(42 with chests)". 0 = só o inventário. |
+| SupportPreview | ligado | A peça que você posiciona mostra a cor de sustentação antes de construir. |
+| AreaRepairKey | Shift esquerdo | Segure ao consertar para consertar todas as peças danificadas em volta. |
+| AreaRepairRadius | 7 | Metros em volta da peça consertada. |
+| NudgeStep | 0.05 | Metros por toque numa tecla de ajuste. |
+| NudgeForward / Back / Left / Right | setas | Movem a peça pelos lados dela. |
+| NudgeUp / NudgeDown | Page Up / Page Down | Sobem e descem a peça. |
+| UndoKey | Backspace | Desfaz sua última ação de construção (qualquer tecla serve, ex.: Z + LeftControl). |
+| UndoHistory | 20 | Quantas ações de construção dá para desfazer. |
 | DetailedLog | desligado | Escreve detalhes no log do BepInEx (para relatar bugs). |
 
 ### Observações

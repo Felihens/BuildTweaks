@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.0
+- Support preview: the piece you place shows the hammer's support colour before you build it (blue, green, yellow, red), dark wine when it would fall. Config `SupportPreview`. / Prévia de sustentação: a peça que você posiciona mostra a cor de sustentação do martelo antes de construir (azul, verde, amarelo, vermelho), vinho escuro quando ela cairia. Config `SupportPreview`.
+- Undo (Backspace): undoes your last build action, placing or removing, up to 20; pieces already taken down by someone else are skipped. Config `UndoKey`, `UndoHistory`. / Desfazer (Backspace): desfaz sua última ação de construção, colocar ou remover, até 20; peças que outra pessoa já derrubou são puladas. Config `UndoKey`, `UndoHistory`.
+- Area repair: hold Shift while repairing to repair every damaged piece within 7 m. Config `AreaRepairKey`, `AreaRepairRadius`. / Conserto em área: segure Shift ao consertar para consertar todas as peças danificadas a até 7 m. Config `AreaRepairKey`, `AreaRepairRadius`.
+- Fine placement: arrow keys move the piece 5 cm along its sides, Page Up / Page Down up and down. / Ajuste fino: setas movem a peça 5 cm pelos lados dela, Page Up / Page Down sobem e descem.
+- Shift + middle mouse (copy piece) copies the exact angle. / Shift + botão do meio (copiar peça) copia o ângulo exato.
+- Build count next to the piece name: x12 (42 with chests); hidden with AzuCraftyBoxes. Config `BuildCount`, `BuildCountChestRange`. / Contador ao lado do nome da peça: x12 (42 with chests); escondido com o AzuCraftyBoxes. Config `BuildCount`, `BuildCountChestRange`.
+
 ## 1.3.0
 - Station upgrades (chopping block, tanning rack, forge bellows...) show "(owned)" next to their name at the bottom of the screen while you place them, when the nearest station of their kind already has that upgrade. Config `OwnedTag`. / As melhorias de bancada (cepo, varal de couro, fole da forja...) mostram "(owned)" ao lado do nome, embaixo da tela, enquanto você as coloca, quando a bancada mais próxima daquele tipo já tem essa melhoria. Config `OwnedTag`.
 

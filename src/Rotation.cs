@@ -30,7 +30,14 @@ namespace BuildTweaks
         {
             if (__instance != Player.m_localPlayer || !Plugin.MoreAngles.Value) return;
             int turned = ___m_placeRotation - _before;
-            if (turned != 0 && Mathf.Approximately(___m_placeRotationDegrees, _setDeg) && Mathf.Abs(turned) <= 2)
+            if (_copied)
+            {
+                // the game's Shift + middle mouse copy: the exact angle of the copied piece (the game rounds it to its steps)
+                _copied = false;
+                _angle = _copiedAngle;
+                _shownUntil = Time.time + 1.5f;
+            }
+            else if (turned != 0 &&Mathf.Approximately(___m_placeRotationDegrees, _setDeg) && Mathf.Abs(turned) <= 2)
             {
                 bool fine = Plugin.FineRotationKey.Value.MainKey != KeyCode.None && Input.GetKey(Plugin.FineRotationKey.Value.MainKey);
                 float step = fine ? Plugin.FineRotationStep.Value : Plugin.RotationStep.Value;
@@ -45,6 +52,9 @@ namespace BuildTweaks
             _setRot = 1;
             _setDeg = _angle;
         }
+
+        internal static bool _copied;
+        internal static float _copiedAngle;
 
         // the angle, under the crosshair for a moment after each turn
         internal static void OnGUI()
@@ -65,6 +75,23 @@ namespace BuildTweaks
             GUI.color = new Color(1f, 0.92f, 0.7f, 1f);
             GUI.Label(r, txt, st);
             GUI.color = old;
+        }
+    }
+
+    [HarmonyPatch(typeof(Player), "CopyPiece")]
+    internal static class RotationCopy
+    {
+        // Shift + middle mouse (the game's own "copy this piece"): remember the copied piece's exact angle
+        private static void Postfix(Player __instance, bool __result)
+        {
+            if (!__result || __instance != Player.m_localPlayer || !Plugin.MoreAngles.Value) return;
+            Piece hovered = __instance.GetHoveringPiece();
+            Piece selected = __instance.GetSelectedPiece();
+            if (hovered == null || selected == null || Utils.GetPrefabName(hovered.gameObject) != selected.gameObject.name) return;
+            Rotation._copiedAngle = Mathf.Repeat(hovered.transform.rotation.eulerAngles.y, 360f);
+            Rotation._copiedAngle = Mathf.Round(Rotation._copiedAngle * 100f) / 100f;
+            Rotation._copied = true;
+            Plugin.Debug("[rotation] copied " + selected.gameObject.name + " at " + Rotation._copiedAngle + "°");
         }
     }
 }
