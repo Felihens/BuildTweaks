@@ -1,6 +1,6 @@
 {
   "name": "BuildTweaks",
-  "version_number": "1.4.0",
+  "version_number": "1.5.0",
   "website_url": "https://github.com/Felihens/BuildTweaks",
   "description": "Support colour before you build, undo, area repair, fine placement, free removal with materials to your inventory, snapping for chests and furniture, more angles. Client-side.",
   "dependencies": [

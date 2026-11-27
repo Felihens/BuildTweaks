@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.5.0
+- A small x inside the build menu's filter or search box (added by another mod) clears it. / Um x pequeno dentro da caixa de filtro ou busca do menu de construção (colocada por outro mod) apaga o que foi digitado.
+
 ## 1.4.0
 - Support preview: the piece you place shows the hammer's support colour before you build it (blue, green, yellow, red), dark wine when it would fall. Config `SupportPreview`. / Prévia de sustentação: a peça que você posiciona mostra a cor de sustentação do martelo antes de construir (azul, verde, amarelo, vermelho), vinho escuro quando ela cairia. Config `SupportPreview`.
 - Undo (Backspace): undoes your last build action, placing or removing, up to 20; pieces already taken down by someone else are skipped. Config `UndoKey`, `UndoHistory`. / Desfazer (Backspace): desfaz sua última ação de construção, colocar ou remover, até 20; peças que outra pessoa já derrubou são puladas. Config `UndoKey`, `UndoHistory`.

@@ -27,6 +27,7 @@ Building is less of a chore. See how well a piece will be held up before you bui
 - **Fine placement:** while placing, the **arrow keys** move the piece 5 cm at a time along its own sides, **Page Up** / **Page Down** move it up and down.
 - **Copy with the exact angle:** **Shift + middle mouse** (the game's "copy this piece") now also copies the exact angle, fine rotation included.
 - **Build count:** the piece name at the bottom of the screen shows how many you can build with what you carry (**x12**), and **(42 with chests)** when the chests around you have enough for more. Hidden when AzuCraftyBoxes is installed, since it shows its own count.
+- **Clear the build filter:** if another mod adds a filter or search box to the build menu, a small **x** inside it wipes what you typed.
 
 ### Requirements
 
@@ -108,6 +109,7 @@ Construir fica menos cansativo. Veja a sustentação da peça antes de construir
 - **Ajuste fino:** ao posicionar, as **setas** movem a peça de 5 em 5 cm pelos lados dela, **Page Up** / **Page Down** sobem e descem.
 - **Copiar com o ângulo exato:** **Shift + botão do meio** (o "copiar peça" do jogo) agora copia também o ângulo exato, inclusive do giro fino.
 - **Contador de construção:** o nome da peça embaixo da tela mostra quantas você consegue construir com o que carrega (**x12**), e **(42 with chests)** quando os baús por perto dão para mais. Fica escondido com o AzuCraftyBoxes instalado, que já mostra a própria contagem.
+- **Limpar o filtro de construção:** se outro mod coloca uma caixa de filtro ou busca no menu de construção, um **x** pequeno dentro dela apaga o que você digitou.
 
 ### Requisitos
 

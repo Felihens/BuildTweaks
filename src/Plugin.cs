@@ -13,7 +13,7 @@ namespace BuildTweaks
     {
         public const string GUID = "felih.BuildTweaks";
         public const string NAME = "Build Tweaks";
-        public const string VERSION = "1.4.0";
+        public const string VERSION = "1.5.0";
 
         internal static ManualLogSource Log;
         internal static ConfigEntry<bool> FreeRemove;
@@ -104,6 +104,7 @@ namespace BuildTweaks
             Removing.Update();
             Fires.Update();
             Undo.Update();
+            ClearFilter.Update();
         }
 
         private void OnGUI()
